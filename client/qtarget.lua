@@ -8,6 +8,6 @@ num = 1
           
  },
 },
-distance = 2.5
+distance = 1.5
 })
 
