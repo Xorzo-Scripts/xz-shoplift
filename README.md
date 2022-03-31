@@ -4,3 +4,4 @@
 
 * Dependencies: 
 * ESX Legacy
+* Qtarget
