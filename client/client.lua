@@ -20,6 +20,8 @@ AddEventHandler("Steal", function()
   ESX.TriggerServerCallback('xz-Getcops', function(cops)
     if cops >= 1 then
   if Cooldown == false then
+    ESX.TriggerServerCallback('xz-notifycops', function()
+    end)
   TaskPlayAnim(PlayerPedId(),"anim@gangops@facility@servers@","hotwire_intro",1.0,-1.0, -1, 1, 1, true, true, true)
   exports['progressBars']:startUI(Config.Time, Config.Trans.shoplift)
   Wait(Config.Time)
