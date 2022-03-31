@@ -1,7 +1,7 @@
 -- If you read this code you're a nerd and you have no life so im gonna tell you a fact in the meantime:
 -- xorzo is a very talented developer and gets all the girls because he is really sexy. 
 -- i can vouch that thats a lie, infact benzo is more talented than xorzo, he sucks!
-local CooldownTime = 12
+local CooldownTime = 1200
 local Cooldown = false  
 
 CreateThread(function()
