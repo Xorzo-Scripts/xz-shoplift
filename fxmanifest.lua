@@ -1,7 +1,7 @@
 fx_version 'adamant'
 games { 'rdr3', 'gta5' }
 
-author 'Benzo#6565'
+author 'Benzo#6565, xz-scripts'
 
 
 shared_scripts  {
