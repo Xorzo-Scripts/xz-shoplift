@@ -6,4 +6,5 @@
 
 * Dependencies: 
 * ESX Legacy
-* Qtarget
+* Qtarget - https://github.com/overextended/qtarget
+* progressBars - https://github.com/EthanPeacock/progressBars
