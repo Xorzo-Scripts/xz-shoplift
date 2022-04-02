@@ -15,8 +15,8 @@ CreateThread(function()
  end)
 
 
-RegisterNetEvent("Steal")
-AddEventHandler("Steal", function()
+RegisterNetEvent("xz-steal")
+AddEventHandler("xz-steal", function()
   ESX.TriggerServerCallback('xz-Getcops', function(cops)
   if cops >= 1 then
   if Cooldown == false then
