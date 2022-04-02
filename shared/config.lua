@@ -1,4 +1,5 @@
 Config = {}
+Config.Time = 1200
 Config.Amount = 2
 Config.Items = {
     {name = 'water', item = 'water'},
@@ -13,8 +14,8 @@ Config.Items = {
 Config.Trans = {
     shoplift = "Stealing Products",
     Done = "You Stole ",
-    NotifyPolice = "Someone stole something from a store. No description included",
+    NotifyPolice = "Someone is currently trying to Shoplift",
     Cooldown = "You already stole some shit here. Please Wait",
-    NoCops = "Not Enough Cops"
+	NoCops = "Not Enough Cops"
 }
 
