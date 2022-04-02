@@ -1,7 +1,7 @@
 -- If you read this code you're a nerd and you have no life so im gonna tell you a fact in the meantime:
 -- xorzo is a very talented developer and gets all the girls because he is really sexy. 
 -- i can vouch that thats a lie, infact benzo is more talented than xorzo, he sucks!
-local CooldownTime = 1200
+local CooldownTime = Config.Time
 local Cooldown = false  
 
 CreateThread(function()
@@ -23,8 +23,8 @@ AddEventHandler("xz-steal", function()
   ESX.TriggerServerCallback('xz-notifycops', function()
   end)
   TaskPlayAnim(PlayerPedId(),"anim@gangops@facility@servers@","hotwire_intro",1.0,-1.0, -1, 1, 1, true, true, true)
-  exports['progressBars']:startUI(Config.Time, Config.Trans.shoplift)
-  Wait(Config.Time)
+  exports['progressBars']:startUI(5500, Config.Trans.shoplift)
+  Wait(5500)
   local Item = Config.Items[math.random(1, #Config.Items)]
   TriggerServerEvent('xz-shoplift', Item.item)
   ESX.ShowNotification(Config.Trans.Done .. Config.Amount .. " ".. Item.item .. "")
@@ -38,7 +38,6 @@ else
     end
   end)
 end)
-
 
 
 
