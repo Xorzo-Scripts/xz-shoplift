@@ -1,4 +1,5 @@
 Config = {}
+Config.EsxPhone = false
 Config.Time = 1200
 Config.Amount = 2
 Config.Items = {
