@@ -15,9 +15,11 @@ end)
 
 RegisterServerEvent("xz-notifycops")
 AddEventHandler('xz-notifycops', function(count)
+  if Config.NotifyCops == true then
   local xPlayers = ESX.GetExtendedPlayers('job', 'police')
   for _, xPlayer in pairs(xPlayers) do
     TriggerClientEvent('esx:showNotification', xPlayer.source, Config.Trans.NotifyPolice)
+    end
   end
 end)
 
