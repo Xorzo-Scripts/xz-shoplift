@@ -4,15 +4,6 @@
 local CooldownTime = Config.Time
 local Cooldown = false  
 
-CreateThread(function()
-  while true do 
-    Wait(5)
-    RequestAnimDict("anim@gangops@facility@servers@")
-    while (not HasAnimDictLoaded("anim@gangops@facility@servers@")) do 
-    Wait(0) 
-     end
-   end
- end)
 
  
 RegisterNetEvent("xz-steal")
@@ -20,6 +11,7 @@ AddEventHandler("xz-steal", function()
   ESX.TriggerServerCallback('xz-Getcops', function(cops)
   if cops >= 1 then
   if Cooldown == false then
+  Anim()
   TriggerEvent('xz-notify')
   TaskPlayAnim(PlayerPedId(),"anim@gangops@facility@servers@","hotwire_intro",1.0,-1.0, -1, 1, 1, true, true, true)
   exports['progressBars']:startUI(5500, Config.Trans.shoplift)
@@ -32,7 +24,7 @@ AddEventHandler("xz-steal", function()
   elseif Cooldown == true then
   ESX.ShowNotification(Config.Trans.Cooldown .. " " ..timeRemaining .. " Seconds" )
   end
-else
+  else
   ESX.ShowNotification(Config.Trans.NoCops)
     end
   end)
@@ -50,6 +42,13 @@ end)
 
 
 
+function Anim()
+  RequestAnimDict("anim@gangops@facility@servers@")
+  while (not HasAnimDictLoaded("anim@gangops@facility@servers@")) do 
+  Wait(0) 
+  end
+end
+
 ---- Steal Cooldown
 function Coooldown()
     Cooldown = true
@@ -61,5 +60,6 @@ function Coooldown()
     end
     Cooldown = false
 end
+
 
 
