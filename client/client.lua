@@ -14,14 +14,13 @@ CreateThread(function()
    end
  end)
 
-
+ 
 RegisterNetEvent("xz-steal")
 AddEventHandler("xz-steal", function()
   ESX.TriggerServerCallback('xz-Getcops', function(cops)
   if cops >= 1 then
   if Cooldown == false then
-  ESX.TriggerServerCallback('xz-notifycops', function()
-  end)
+  TriggerEvent('xz-notify')
   TaskPlayAnim(PlayerPedId(),"anim@gangops@facility@servers@","hotwire_intro",1.0,-1.0, -1, 1, 1, true, true, true)
   exports['progressBars']:startUI(5500, Config.Trans.shoplift)
   Wait(5500)
@@ -39,6 +38,15 @@ else
   end)
 end)
 
+RegisterNetEvent("xz-notify")
+AddEventHandler("xz-notify", function()
+  if Config.EsxPhone == true then
+  TriggerServerEvent('esx_phone:send', 'police', Config.Trans.NotifyPolice, true)
+  else
+    TriggerServerEvent('xz-notifycops')
+  end
+end)
+
 
 
 
@@ -53,4 +61,5 @@ function Coooldown()
     end
     Cooldown = false
 end
+
 
