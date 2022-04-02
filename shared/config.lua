@@ -1,7 +1,8 @@
+-- Written with love by Xorzo Scripts team. Any questions join: https://discord.gg/zX4xVJWmdW
 Config = {}
-Config.EsxPhone = false
-Config.Time = 1200
-Config.Amount = 2
+Config.EsxPhone = false -- if you are using esx_phone in your server enable this for the police notification.
+Config.Time = 1200 -- time between robbery aka cooldown time.
+Config.Amount = 2 -- amount of items. 
 Config.Items = {
     {name = 'water', item = 'water'},
     {name = 'bread', item = 'bread'},
@@ -9,7 +10,7 @@ Config.Items = {
     {name = 'cocacola', item = 'cocacola'},
     {name = 'sprite', item = 'sprite'},
     {name = 'burger', item = 'burger'},
-}
+} -- add items from your wish.
 
 
 Config.Trans = {
@@ -18,5 +19,5 @@ Config.Trans = {
     NotifyPolice = "Someone is currently trying to Shoplift",
     Cooldown = "You already stole some shit here. Please Wait",
 	NoCops = "Not Enough Cops"
-}
+} -- Locale of your wish.
 
