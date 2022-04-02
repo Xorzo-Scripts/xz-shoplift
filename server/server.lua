@@ -13,8 +13,8 @@ AddEventHandler('xz-shoplift', function(Item)
    xPlayer.addInventoryItem(Item, Config.Amount)
 end)
 
-
-ESX.RegisterServerCallback("xz-notifycops", function(source)
+RegisterServerEvent("xz-notifycops")
+AddEventHandler('xz-notifycops', function(count)
   local xPlayers = ESX.GetExtendedPlayers('job', 'police')
   for _, xPlayer in pairs(xPlayers) do
     TriggerClientEvent('esx:showNotification', xPlayer.source, Config.Trans.NotifyPolice)
