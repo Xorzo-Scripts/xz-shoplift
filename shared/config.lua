@@ -18,7 +18,7 @@ Config.Trans = {
     shoplift = "Stealing Products",
     Done = "You Stole ",
     NotifyPolice = "Someone is currently trying to Shoplift",
-    Cooldown = "You already stole some shit here. Please Wait",
+    Cooldown = "There is nothing in this shelf",
 	NoCops = "Not Enough Cops"
 } -- Locale of your wish.
 

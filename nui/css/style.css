@@ -1,0 +1,40 @@
+body {
+    padding: 0;
+    margin: 0;
+    color: white;
+    font-family: sans-serif;
+}
+
+.circle {
+    width: 30px;
+    height: 22px;
+    border-radius: 50%;
+    font-size: 17px;
+    color: #fff;
+    text-align: center;
+    border: 1px solid rgb(255, 255, 255);
+    margin-top: 8px;
+    padding-top: 8px;
+  }
+
+  .interact {
+      margin-top: 25%;
+      margin-left: 50%;
+      float: left;
+      display: none;
+  }
+
+  .circle:hover {
+      background-color: white;
+      color: black;
+      cursor: pointer;
+  }
+
+  .progbar img {
+      width: 40px;
+      height: auto;
+      position: absolute;
+      margin: 0 auto;
+      left: 0;
+      right: 0;
+  }

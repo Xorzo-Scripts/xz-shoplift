@@ -1,10 +1,60 @@
--- If you read this code you're a nerd and you have no life so im gonna tell you a fact in the meantime:
--- xorzo is a very talented developer and gets all the girls because he is really sexy. 
--- i can vouch that thats a lie, infact benzo is more talented than xorzo, he sucks!
 local CooldownTime = Config.Time
-local Cooldown = false  
+local Wait = Wait
+local Cooldown = false
+local shelves = {
+  [`v_ret_247shelves05`] = true,
+  [`v_ret_247shelves04`] = true,
+  [`v_ret_247shelves03`] = true
+}
 
+function FindNearbyShelf()
+	local coords = GetEntityCoords(PlayerPedId())
+    local shelfObject = 0
+	local shelfDistance = 1000
+	local objects = GetGamePool("CObject")
+	local staat, resultaat = xpcall(function()
+		local tel = 0
+		for i=1, #objects do
+			if tel % 30 == 0 then
+				Wait(0)
+			end
+			tel = tel + 1
+			if shelves[GetEntityModel(objects[i])] then
+				local controlDistance = #(coords - GetEntityCoords(objects[i]))
+			
+				if controlDistance < shelfDistance then
+					shelfDistance = controlDistance
+					shelfObject = objects[i]
+				end
+			end
+		end
+	end, debug.traceback)
+	if not staat then
+		print(("Error" .. resultaat))
+	end
+	return shelfObject, shelfDistance
+end
 
+CreateThread(function()
+	while true do
+		Wait(1000)
+		local shelfObject, shelfDistance = FindNearbyShelf()
+		if shelfDistance < 1.5 then
+      if not alreadySend then
+        alreadySend = true
+			isNearShelf = shelfObject
+      SetNuiFocus(true, true)
+      SendNUIMessage({
+        part = "interaction"
+      })
+    end
+		else
+			isNearShelf = false
+			Wait(math.ceil(shelfDistance * 3))
+      alreadySend = false
+		end
+	end
+end)
  
 RegisterNetEvent("xz-steal")
 AddEventHandler("xz-steal", function()
@@ -14,7 +64,10 @@ AddEventHandler("xz-steal", function()
   Anim()
   TriggerEvent('xz-notify')
   TaskPlayAnim(PlayerPedId(),"anim@gangops@facility@servers@","hotwire_intro",1.0,-1.0, -1, 1, 1, true, true, true)
-  exports['progressBars']:startUI(5500, Config.Trans.shoplift)
+  SendNUIMessage({
+    prog = true,
+    time = 5500
+  })
   Wait(5500)
   local Item = Config.Items[math.random(1, #Config.Items)]
   TriggerServerEvent('xz-shoplift', Item.item)
@@ -30,6 +83,15 @@ AddEventHandler("xz-steal", function()
   end)
 end)
 
+RegisterNUICallback('close', function()
+  SetNuiFocus(false, false)
+end)
+
+RegisterNUICallback('steal', function()
+  TriggerEvent('xz-steal')
+end)
+
+
 RegisterNetEvent("xz-notify")
 AddEventHandler("xz-notify", function()
   if Config.EsxPhone == true then
@@ -38,9 +100,6 @@ AddEventHandler("xz-notify", function()
     TriggerServerEvent('xz-notifycops')
   end
 end)
-
-
-
 
 function Anim()
   RequestAnimDict("anim@gangops@facility@servers@")
